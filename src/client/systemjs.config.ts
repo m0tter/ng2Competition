@@ -4,7 +4,7 @@ declare var System: any;
   let paths = { 'npm:': 'node_modules/' };
 
   let map = {
-    app: 'app',
+    app: 'client/app',
 
     // angular bundles
     '@angular/core':                      'npm:@angular/core/bundles/core.umd.js',

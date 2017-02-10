@@ -12,13 +12,16 @@
     ],
     "removeComments": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
   "exclude": [
     ".git",
     "node_modules",
     "typings/browser.d.ts",
     "typings/browser",
-    "typings/main"
+    "typings/main",
+    "dist"
   ]
 }
