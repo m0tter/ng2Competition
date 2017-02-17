@@ -18,6 +18,18 @@ export class AppService {
       .catch( err => this.errorHandler( err ));
   }
 
+  getSchool(id: string): Promise<School> {
+    return this.getSchools()
+      .then(schools => schools.find(school => school._id === id));
+  }
+
+  newSchool(school: School): Promise<School> {
+    return this.http.post(this.schoolAPI, school)
+      .toPromise()
+      .then( resp => resp.json().data as School )
+      .catch( err => this.errorHandler( err ));
+  }
+
   private errorHandler(error: any): Promise<any> {
     console.error('Error occurred in AppService: ', error.message || error);
     return Promise.reject(error.message || error);

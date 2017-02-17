@@ -1,0 +1,11 @@
+<div id="school-details">
+  <form>
+    <input type="text" placeholder="School Name" [(ngModel)]="school.name" name="name">
+    <input type="text" placeholder="Contact Name" [(ngModel)]="school.contactName" name="contactName">
+    <input type="text" placeholder="Contact Email" [(ngModel)]="school.contactEmail" name="contactEmail">
+  </form>
+  <div class="buttons">
+    <button class="btn" (click)="btnSave_Clicked()">Save</button>
+    <button class="btn" (click)="btnCancel_Clicked()">Cancel</button>
+  </div>
+</div>

@@ -8,12 +8,23 @@ import { routing }          from './app.routing';
 
 import { AppService }       from './app.service';
 
-import { DashboardComponent }   from './dashboard.component';
-import { SchoolComponent }       from './school.component';
+import { DashboardComponent }       from './dashboard.component';
+import { SchoolComponent }          from './school.component';
+import { SchoolDetailsComponent }   from './school-details.component';
 
 @NgModule({
-    imports: [ BrowserModule, FormsModule, HttpModule, routing ],
-    declarations: [ AppComponent, DashboardComponent, SchoolComponent ],
+    imports: [ 
+        BrowserModule, 
+        FormsModule, 
+        HttpModule, 
+        routing 
+    ],
+    declarations: [ 
+        AppComponent, 
+        DashboardComponent, 
+        SchoolComponent,
+        SchoolDetailsComponent 
+    ],
     providers: [ AppService ],
     bootstrap: [ AppComponent ]
 })
