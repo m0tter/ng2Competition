@@ -1,3 +1,24 @@
 .schools {
   padding: 20px;
 }
+.container { padding: 10px; }
+.grid {
+  display: table;
+  border: 1px solid #aaa;
+}
+.header {
+  border-bottom: 1px solid #aaa;
+  background-color: #ccc;
+  display: table-row;
+}
+.school {
+  display: table-row;
+}
+[class^="sc-"] {
+  display: table-cell;
+  padding: 8px;
+}
+.sc-selected { width: 20px; }
+.sc-name { width: 120px; }
+.sc-contact { width: 150px; }
+.sc-email { width: 200px; }
