@@ -1,5 +1,7 @@
 <div class="schools">
   <button type="button" (click)="btnNew_Clicked()">New</button>
+  <button type="button" (click)="btnDelete_Clicked()" [disabled]="deleteDisabled">Delete</button>
+  <button type="button" (click)="btnEdit_Clicked()" [disabled]="editDisabled">Edit</button>
   <div class="container">
     <div class="grid">
       <div class="header">
@@ -9,7 +11,7 @@
         <div class="sc-email">Contact Email</div>
       </div>
       <div class="school" *ngFor="let school of schools; let i = index">
-        <div class="sc-select"><input type="checkbox" (click)="SchoolSelect_Clicked(i)"></div>
+        <div class="sc-select"><input type="checkbox" (click)="schoolSelect_Clicked(i)"></div>
         <div class="sc-name">{{school.name}}</div>
         <div class="sc-contact">{{school.contactName}}</div>
         <div class="sc-email">{{school.contactEmail}}</div>
