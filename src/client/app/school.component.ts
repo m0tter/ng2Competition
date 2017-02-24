@@ -15,6 +15,7 @@ interface school extends School {
 })
 export class SchoolComponent implements OnInit {
   private schools: school[];
+  private selectedSchool: school;
   private editDisabled = true;
   private deleteDisabled = true;
 
@@ -35,14 +36,33 @@ export class SchoolComponent implements OnInit {
     this.editDisabled = true;
     this.deleteDisabled = true;
 
-    let counter = this.schools.filter( school => school.selected === true).length
+    let schools = this.schools.filter( school => school.selected === true)
 
-    if( counter === 1 ) this.editDisabled = false;
-    if( counter > 0 ) this.deleteDisabled = false;
+    if( schools.length === 1 ) {
+      this.editDisabled = false;
+      this.selectedSchool = schools[0];
+    }
+    if( schools.length > 0 ) this.deleteDisabled = false;
   }
 
   btnNew_Clicked(): void {
     this.router.navigate(['/detail/0']);
+  }
+
+  btnDelete_Clicked(): void {
+    for( let s of this.schools ){
+      if( s.selected ) this.deleteSchool(s);
+    }
+  }
+
+  btnEdit_Clicked(): void { 
+    this.router.navigate(['/detail/', this.selectedSchool._id]);
+  }
+
+  deleteSchool(school: school): void {
+    this.appService.deleteSchool(school)
+      .then( res => { if( res ) this.schools.splice( this.schools.indexOf(school), 1); })
+      .catch( err => this.errorHandler( err ));
   }
 
   ngOnInit() {

@@ -16,7 +16,7 @@ registerRoutes(app);
 
 app.use(express.static(__dirname));
 
-app.get('/', (req:Request, res:Response) => {
+app.get('/*', (req:Request, res:Response) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 

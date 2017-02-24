@@ -46,6 +46,13 @@ export class SchoolAPI {
         console.log('I got here first');
       }
     });
+
+    this.router.delete('/:id', (req: Request, res: Response) => {
+      SchoolModel.remove( {_id: req.params.id}, err => {
+        if( err ) this.errorHandler( err, res );
+        else res.status( 200 ).json( {'success': true, 'data': req.params.id} );
+      });
+    });
   }
 
   static apiController(): Router {

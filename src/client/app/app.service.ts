@@ -30,6 +30,15 @@ export class AppService {
       .catch( err => this.errorHandler( err ));
   }
 
+  deleteSchool(school: School): Promise<boolean> {
+    return this.http.delete( this.schoolAPI + school._id )
+      .toPromise()
+      .then( resp => {
+        if( resp.json().data === school._id ) return true; else return false;
+      })
+      .catch( err => this.errorHandler( err ));
+  }
+
   private errorHandler(error: any): Promise<any> {
     console.error('Error occurred in AppService: ', error.message || error);
     return Promise.reject(error.message || error);
